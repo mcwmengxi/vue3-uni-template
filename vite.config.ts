@@ -21,4 +21,21 @@ export default defineConfig({
       }
     }
   },
+  // 开发服务器配置
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    proxy: {}
+  },
+  build: {
+    /** 配置h5打包js,css,img分别在不同文件夹*/
+    assetsDir: 'static/image',
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
+      }
+    }
+  }
 });
